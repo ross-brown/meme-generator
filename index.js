@@ -14,28 +14,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const bottomTextInput = document.querySelector('#bottom-text-input');
 
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  function createMeme() {
     const memeDiv = document.createElement('div');
     const img = document.createElement('img');
     const topSpan = document.createElement('span');
     const bottomSpan = document.createElement('span');
 
-    memeDiv.classList.add("meme-div")
+    memeDiv.classList.add("meme-div");
 
     img.src = imageInput.value;
     img.classList.add("meme");
 
     topSpan.innerText = topTextInput.value;
-    topSpan.classList.add('top-text')
+    topSpan.classList.add('top-text');
     bottomSpan.innerText = bottomTextInput.value;
-    bottomSpan.classList.add('bottom-text')
+    bottomSpan.classList.add('bottom-text');
 
     memeDiv.appendChild(img);
     memeDiv.appendChild(topSpan);
     memeDiv.appendChild(bottomSpan);
+    return memeDiv;
+  }
 
-    memeSection.append(memeDiv);
+  function submitMeme(e) {
+    e.preventDefault();
+    memeSection.append(createMeme());
     form.reset();
-  });
+  }
+
+  form.addEventListener('submit', submitMeme);
 });
