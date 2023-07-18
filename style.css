@@ -126,6 +126,11 @@ input {
 
 
 
+.social-icon {
+  color: #17252a;
+  margin-left: 0.5rem;
+}
+
 footer {
   background-color: #2b7a78;
   text-align: center;
