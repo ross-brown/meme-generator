@@ -24,9 +24,9 @@ function createMeme() {
   img.src = imageInput.value;
   img.classList.add("meme");
 
-  topSpan.innerText = topTextInput.value;
+  topSpan.innerText = topTextInput.value.toUpperCase();
   topSpan.classList.add('top-text');
-  bottomSpan.innerText = bottomTextInput.value;
+  bottomSpan.innerText = bottomTextInput.value.toUpperCase();
   bottomSpan.classList.add('bottom-text');
 
   memeDiv.appendChild(img);

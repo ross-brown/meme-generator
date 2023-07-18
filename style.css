@@ -2,18 +2,37 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #3AAFA9;
+}
+
 header {
   text-align: center;
+  width: 100%;
+  color: #17252a;
+}
+
+#title {
+  color: #FEFFFF;
+  font-size: 5rem;
 }
 
 form {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-flow: row wrap;
 }
 
 label {
-  margin: 0.25rem;
+  margin-bottom: 0.5rem;
+  margin-right: 1.5rem;
 }
 
 #memes {
@@ -32,25 +51,39 @@ label {
   position: relative;
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
   color: white;
-  font-size: 2rem;
   -webkit-text-stroke: 1.5px black;
+  margin: 1rem;
 }
 
 .top-text {
   text-align: center;
+  font-size: 2rem;
   position: absolute;
-  top: 1.5rem;
-  left: 11rem
+  top: 3%;
+  width: 100%;
 }
 
 .bottom-text {
   text-align: center;
+  font-size: 2rem;
   position: absolute;
-  bottom: 1.5rem;
-  left: 11rem;
+  bottom: 4%;
+  width: 100%;
 }
 
+/* the img element */
 .meme {
-  width: 25rem;
-  margin: 1rem
+  width: 30rem;
+}
+
+
+@media only screen and (max-width: 900px){
+
+  #title {
+    font-size: 3rem;
+  }
+
+  .meme {
+    width: 20rem;
+  }
 }
