@@ -6,41 +6,40 @@
 //on form submit, clear all inputs
 //STYLE IT!!!!
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
-  const memeSection = document.querySelector("#memes");
-  const imageInput = document.querySelector('#image-input');
-  const topTextInput = document.querySelector('#top-text-input');
-  const bottomTextInput = document.querySelector('#bottom-text-input');
+const form = document.querySelector('form');
+const memeSection = document.querySelector("#memes");
+const imageInput = document.querySelector('#image-input');
+const topTextInput = document.querySelector('#top-text-input');
+const bottomTextInput = document.querySelector('#bottom-text-input');
 
 
-  function createMeme() {
-    const memeDiv = document.createElement('div');
-    const img = document.createElement('img');
-    const topSpan = document.createElement('span');
-    const bottomSpan = document.createElement('span');
+function createMeme() {
+  const memeDiv = document.createElement('div');
+  const img = document.createElement('img');
+  const topSpan = document.createElement('span');
+  const bottomSpan = document.createElement('span');
 
-    memeDiv.classList.add("meme-div");
+  memeDiv.classList.add("meme-div");
 
-    img.src = imageInput.value;
-    img.classList.add("meme");
+  img.src = imageInput.value;
+  img.classList.add("meme");
 
-    topSpan.innerText = topTextInput.value;
-    topSpan.classList.add('top-text');
-    bottomSpan.innerText = bottomTextInput.value;
-    bottomSpan.classList.add('bottom-text');
+  topSpan.innerText = topTextInput.value;
+  topSpan.classList.add('top-text');
+  bottomSpan.innerText = bottomTextInput.value;
+  bottomSpan.classList.add('bottom-text');
 
-    memeDiv.appendChild(img);
-    memeDiv.appendChild(topSpan);
-    memeDiv.appendChild(bottomSpan);
-    return memeDiv;
-  }
+  memeDiv.appendChild(img);
+  memeDiv.appendChild(topSpan);
+  memeDiv.appendChild(bottomSpan);
+  return memeDiv;
+}
 
-  function submitMeme(e) {
-    e.preventDefault();
-    memeSection.append(createMeme());
-    form.reset();
-  }
+function submitMeme(e) {
+  e.preventDefault();
+  memeSection.append(createMeme());
+  form.reset();
+}
 
-  form.addEventListener('submit', submitMeme);
-});
+
+form.addEventListener('submit', submitMeme);
