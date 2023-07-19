@@ -33,12 +33,14 @@ header {
 form {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-flow: row wrap;
 }
 
 label {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -48,16 +50,19 @@ label {
 input {
   display: flex;
   justify-content: center;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   border: 1px solid #17252a;
   border-radius: 0.25rem;
   background-color: #FEFFFF;
+  height: 2rem;
+  width: 15rem;
 }
 
 #meme-submit {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.4rem;
   color:#FEFFFF;
+  width: 8rem;
   background-color: #17252a;
   border-radius: 1rem;
   cursor: pointer;
@@ -94,6 +99,7 @@ input {
   color: white;
   -webkit-text-stroke: 1.5px black;
   margin: 1rem;
+  cursor: pointer;
 }
 
 .top-text {

@@ -67,9 +67,9 @@ function submitMeme(e) {
 }
 
 function deleteMeme(e) {
-  if (e.target.classList.contains('overlay')) {
+  if (e.target.classList.contains('overlay') || e.target.classList.contains('delete-meme')) {
     if (confirm('Are you sure you want to delete this meme?')) {
-      e.target.parentElement.remove();
+      e.target.closest('div.meme-div').remove();
     }
   }
 }
