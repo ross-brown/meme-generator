@@ -1,11 +1,3 @@
-// on form submit, append div that has meme (img and text)
-
-//REQUIREMENTS:
-//submit form on page to generate a new meme, add multiple to page by submitting alot
-//click on a button to remove a meme from page
-//on form submit, clear all inputs
-//STYLE IT!!!!
-
 const form = document.querySelector('form');
 const memeSection = document.querySelector("#memes");
 const imageInput = document.querySelector('#image-input');
