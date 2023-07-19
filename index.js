@@ -13,6 +13,7 @@ const topTextInput = document.querySelector('#top-text-input');
 const bottomTextInput = document.querySelector('#bottom-text-input');
 const randomMemeBtn = document.querySelector('.meme-random');
 
+
 async function getRandomMeme() {
   const randomIndex = Math.floor(Math.random() * 69);
   const response = await fetch('https://api.imgflip.com/get_memes');
@@ -20,7 +21,6 @@ async function getRandomMeme() {
   const filteredMemes = data.data.memes.filter(meme => meme.box_count < 3);
   imageInput.value = filteredMemes[randomIndex].url;
 }
-
 
 function createOverlay() {
   const div = document.createElement("div");
@@ -89,6 +89,7 @@ function deleteMeme(e) {
     }
   }
 }
+
 
 form.addEventListener('submit', submitMeme);
 memeSection.addEventListener('click', deleteMeme);
