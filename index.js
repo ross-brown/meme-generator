@@ -25,14 +25,14 @@ function createOverlay() {
 }
 
 function isImgLink(url) {
-  if(typeof url !== 'string') return false;
-  return(url.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gmi) != null);
+  const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/;
+  return regex.test(url);
 }
 
 
 
 function createMeme() {
-  if (!isImgLink(imageInput)) {
+  if (!isImgLink(imageInput.value)) {
     alert("Invalid or broken image URL");
     return;
   }
@@ -62,7 +62,7 @@ function createMeme() {
 
 function submitMeme(e) {
   e.preventDefault();
-    memeSection.append(createMeme() || '');
+  memeSection.append(createMeme() || '');
   form.reset();
 }
 
