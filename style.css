@@ -162,6 +162,7 @@ input {
 /* the img element */
 .meme {
   width: 30rem;
+  border-radius: 10px;
 }
 
 
