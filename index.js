@@ -24,14 +24,26 @@ function createOverlay() {
   return div;
 }
 
+function isImgLink(url) {
+  if(typeof url !== 'string') return false;
+  return(url.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gmi) != null);
+}
+
+
 
 function createMeme() {
+  if (!isImgLink(imageInput)) {
+    alert("Invalid or broken image URL");
+    return;
+  }
+
   const memeDiv = document.createElement('div');
   const img = document.createElement('img');
   const topSpan = document.createElement('span');
   const bottomSpan = document.createElement('span');
 
   memeDiv.classList.add("meme-div");
+
 
   img.src = imageInput.value;
   img.classList.add("meme");
@@ -50,7 +62,7 @@ function createMeme() {
 
 function submitMeme(e) {
   e.preventDefault();
-  memeSection.append(createMeme());
+    memeSection.append(createMeme() || '');
   form.reset();
 }
 
