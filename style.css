@@ -24,8 +24,24 @@ header {
 }
 
 #title {
+  margin-bottom: 3rem;
   color: #FEFFFF;
   font-size: 5rem;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+.gifs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.gif {
+  border: 2px solid #17252a;
+  border-radius: 1rem;
 }
 
 /* MEME FORM */
@@ -153,6 +169,10 @@ input {
 
   #title {
     font-size: 3rem;
+  }
+
+  label {
+    font-size: 1.25rem;
   }
 
   .meme {

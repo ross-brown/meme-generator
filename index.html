@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-  rel="stylesheet">
+    rel="stylesheet">
   <script src="https://kit.fontawesome.com/301d6ba936.js" crossorigin="anonymous"></script>
   <title>Meme Generator</title>
 </head>
@@ -16,6 +16,12 @@
 <body>
   <header>
     <h1 id="title">MEME GENERATOR</h1>
+    <div class="gifs">
+      <img src="https://media.giphy.com/media/Lopx9eUi34rbq/giphy.gif" alt="" width="25%" class="gif">
+      <img src="https://media.giphy.com/media/NTur7XlVDUdqM/giphy.gif" alt="" width="25%" class="gif">
+      <img src="https://media.giphy.com/media/BmmfETghGOPrW/giphy.gif" alt="" width="25%" class="gif">
+    </div>
+    <p>Enter in a image URL as well as optional text for the top and bottom to create your own Meme!</p>
   </header>
   <form action="">
     <label for="image">
@@ -24,11 +30,11 @@
     </label>
     <label for="toptext">
       Top Text:
-      <input type="text" name="toptext" id="top-text-input" required>
+      <input type="text" name="toptext" id="top-text-input">
     </label>
     <label for="bottomtext">
       Bottom Text:
-      <input type="text" name="bottomtext" id="bottom-text-input" required>
+      <input type="text" name="bottomtext" id="bottom-text-input">
     </label>
     <input type="submit" value="CREATE" id="meme-submit">
   </form>
@@ -46,7 +52,8 @@
   </section>
   <footer>
     <span>&copy; Ross Brown 2023</span>
-    <a class="social-icon" href="https://www.linkedin.com/in/ross-brown-/"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+    <a class="social-icon" href="https://www.linkedin.com/in/ross-brown-/"><i
+        class="fa-brands fa-linkedin fa-xl"></i></a>
     <a class="social-icon" href="https://github.com/ross-brown"><i class="fa-brands fa-github fa-xl"></i></a>
   </footer>
   <script src="index.js"></script>
