@@ -29,7 +29,26 @@ function isImgLink(url) {
   return regex.test(url);
 }
 
+function createImg() {
+  const img = document.createElement('img');
+  img.src = imageInput.value;
+  img.classList.add("meme");
+  return img;
+}
 
+function createTopSpan() {
+  const topSpan = document.createElement('span');
+  topSpan.innerText = topTextInput.value.toUpperCase();
+  topSpan.classList.add("top-text");
+  return topSpan;
+}
+
+function createBottomSpan() {
+  const bottomSpan = document.createElement("span");
+  bottomSpan.innerText = bottomTextInput.value.toUpperCase();
+  bottomSpan.classList.add("bottom-text");
+  return bottomSpan;
+}
 
 function createMeme() {
   if (!isImgLink(imageInput.value)) {
@@ -38,25 +57,14 @@ function createMeme() {
   }
 
   const memeDiv = document.createElement('div');
-  const img = document.createElement('img');
-  const topSpan = document.createElement('span');
-  const bottomSpan = document.createElement('span');
-
   memeDiv.classList.add("meme-div");
 
+  const img = createImg();
+  const topSpan = createTopSpan();
+  const bottomSpan = createBottomSpan();
+  const overlay = createOverlay();
 
-  img.src = imageInput.value;
-  img.classList.add("meme");
-
-  topSpan.innerText = topTextInput.value.toUpperCase();
-  topSpan.classList.add('top-text');
-  bottomSpan.innerText = bottomTextInput.value.toUpperCase();
-  bottomSpan.classList.add('bottom-text');
-
-  memeDiv.appendChild(img);
-  memeDiv.appendChild(topSpan);
-  memeDiv.appendChild(bottomSpan);
-  memeDiv.appendChild(createOverlay());
+  memeDiv.append(img, topSpan, bottomSpan, overlay);
   return memeDiv;
 }
 
