@@ -13,6 +13,18 @@ const topTextInput = document.querySelector('#top-text-input');
 const bottomTextInput = document.querySelector('#bottom-text-input');
 
 
+
+function createOverlay() {
+  const div = document.createElement("div");
+  const span = document.createElement("span");
+  div.classList.add('overlay');
+  span.classList.add("delete-meme");
+  span.innerText = 'x';
+  div.appendChild(span);
+  return div;
+}
+
+
 function createMeme() {
   const memeDiv = document.createElement('div');
   const img = document.createElement('img');
@@ -32,6 +44,7 @@ function createMeme() {
   memeDiv.appendChild(img);
   memeDiv.appendChild(topSpan);
   memeDiv.appendChild(bottomSpan);
+  memeDiv.appendChild(createOverlay());
   return memeDiv;
 }
 
@@ -41,5 +54,13 @@ function submitMeme(e) {
   form.reset();
 }
 
+function deleteMeme(e) {
+  if (e.target.classList.contains('overlay')) {
+    if (confirm('Are you sure you want to delete this meme?')) {
+      e.target.parentElement.remove();
+    }
+  }
+}
 
 form.addEventListener('submit', submitMeme);
+memeSection.addEventListener('click', deleteMeme);

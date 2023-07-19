@@ -8,6 +8,10 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   background-color: #3AAFA9;
@@ -71,13 +75,14 @@ input {
 /* MEME SECTION */
 
 #memes {
-  height: 70vh;
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- align-items: center;
- margin: 1rem;
- /* border: 1px red solid; */
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1rem;
+  padding-bottom: 2.5rem;
+  /* border: 1px red solid; */
 }
 
 .meme-div {
@@ -107,13 +112,38 @@ input {
   width: 100%;
 }
 
+.delete-meme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4rem;
+  transform: translate(-50%, -50%);
+  color: lightgray;
+  border: none;
+  -webkit-text-stroke: 0px;
+}
+
+.overlay {
+  display: none;
+}
+
+.meme-div:hover .overlay {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(110, 110, 110, 0.7);
+}
+
+
 /* the img element */
 .meme {
   width: 30rem;
 }
 
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1100px){
 
   #title {
     font-size: 3rem;
@@ -125,6 +155,7 @@ input {
 }
 
 
+/* FOOTER */
 
 .social-icon {
   color: #17252a;
@@ -132,6 +163,7 @@ input {
 }
 
 footer {
+  width: 100%;
   background-color: #2b7a78;
   text-align: center;
   padding: 1rem;
