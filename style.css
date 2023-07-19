@@ -21,6 +21,7 @@ header {
   text-align: center;
   width: 100%;
   color: #17252a;
+  margin-bottom: 1.25rem;
 }
 
 #title {
@@ -42,6 +43,25 @@ header p {
 .gif {
   border: 2px solid #17252a;
   border-radius: 1rem;
+}
+
+.meme-random {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2rem;
+  background-color: #2b7a78;
+  color: #FEFFFF;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  transition: all 300ms;
+  border: 1px solid #2b7a78;
+}
+
+.meme-random:hover {
+  color: #2b7a78;
+  background-color: #FEFFFF;
 }
 
 /* MEME FORM */
@@ -74,7 +94,7 @@ input {
   width: 15rem;
 }
 
-#meme-submit {
+.meme-submit {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.4rem;
   color:#FEFFFF;
@@ -88,7 +108,7 @@ input {
   padding-right: 0.75rem;
 }
 
-#meme-submit:hover {
+.meme-submit:hover {
   color:#17252a;
   background-color: #FEFFFF;
 }
@@ -179,6 +199,10 @@ input {
 
   .meme {
     width: 20rem;
+  }
+
+  .meme-random {
+    font-size: 1.5rem;
   }
 }
 
