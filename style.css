@@ -204,6 +204,15 @@ input {
   .meme-random {
     font-size: 1.5rem;
   }
+
+  .top-text {
+    font-size: 1.6rem;
+  }
+
+
+  .bottom-text {
+    font-size: 1.6rem;
+  }
 }
 
 
