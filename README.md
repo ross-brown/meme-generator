@@ -1,7 +1,7 @@
 
 # Meme Generator
 
-A meme generator that accepts a image URL, as well as optional text to be placed at the top and bottom of the image. 
+A meme generator that accepts a image URL or file upload, as well as optional text to be placed at the top and bottom of the image. 
 
 Can also make fetch API calls to generate a random meme URL from Imgflip API.
 
