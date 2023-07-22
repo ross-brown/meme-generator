@@ -32,7 +32,7 @@ function isImgLink(url) {
 
 function createImg() {
   const img = document.createElement('img');
-  img.src = imageInput.value || URL.createObjectURL(fileUploadInput.files[0]);
+  img.src = fileUploadInput.files[0] ? URL.createObjectURL(fileUploadInput.files[0]) : imageInput.value;
   img.classList.add("meme");
   return img;
 }
@@ -52,10 +52,8 @@ function createBottomSpan() {
 }
 
 function createMeme() {
-  if (!isImgLink(imageInput.value) && !fileUploadInput.files) {
-    alert("Invalid or broken image URL");
-    return;
-  } else if (fileUploadInput.files.length === 0) {
+  if (!isImgLink(imageInput.value) && !fileUploadInput.files[0]) {
+    alert("Please enter a valid Image URL or File");
     return;
   }
 

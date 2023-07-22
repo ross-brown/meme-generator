@@ -105,7 +105,6 @@ input[type='file'] {
   border: none;
   background-color: #2b7a78;
   color: #FEFFFF;
-  align-self: center;
   cursor: pointer;
 }
 
