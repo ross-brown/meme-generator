@@ -21,13 +21,17 @@
       <img src="https://media.giphy.com/media/NTur7XlVDUdqM/giphy.gif" alt="" width="27%" class="gif">
       <img src="https://media.giphy.com/media/BmmfETghGOPrW/giphy.gif" alt="" width="27%" class="gif">
     </div>
-    <p>Type/Paste in an image URL or generate a random URL by clicking the button below!</p>
+    <p>Paste in or upload an image file OR generate a random URL by clicking the button below!</p>
     <button class="meme-random">GET RANDOM MEME</button>
   </header>
   <form action="">
     <label for="image">
       Image URL:
-      <input type="text" name="image" id="image-input" placeholder="Paste URL Here" required>
+      <input type="text" name="image" id="image-input" placeholder="Paste URL Here">
+    </label>
+    <label for="upload" class="file-upload">
+      Image File:
+      <input type="file" name="upload" id="image-upload">
     </label>
     <label for="toptext">
       Top Text:

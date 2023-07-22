@@ -94,6 +94,21 @@ input {
   width: 15rem;
 }
 
+input[type='file'] {
+  height: 1.8rem;
+  width: 15.5rem;
+}
+
+#image-upload::-webkit-file-upload-button {
+  font-size: 1.25rem;
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+  background-color: #2b7a78;
+  color: #FEFFFF;
+  align-self: center;
+  cursor: pointer;
+}
+
 .meme-submit {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.4rem;

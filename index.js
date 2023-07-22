@@ -4,6 +4,7 @@ const imageInput = document.querySelector('#image-input');
 const topTextInput = document.querySelector('#top-text-input');
 const bottomTextInput = document.querySelector('#bottom-text-input');
 const randomMemeBtn = document.querySelector('.meme-random');
+const fileUploadInput = document.querySelector('#image-upload')
 
 
 async function getRandomMeme() {
@@ -31,7 +32,7 @@ function isImgLink(url) {
 
 function createImg() {
   const img = document.createElement('img');
-  img.src = imageInput.value;
+  img.src = imageInput.value || URL.createObjectURL(fileUploadInput.files[0]);
   img.classList.add("meme");
   return img;
 }
@@ -51,8 +52,10 @@ function createBottomSpan() {
 }
 
 function createMeme() {
-  if (!isImgLink(imageInput.value)) {
+  if (!isImgLink(imageInput.value) && !fileUploadInput.files) {
     alert("Invalid or broken image URL");
+    return;
+  } else if (fileUploadInput.files.length === 0) {
     return;
   }
 
