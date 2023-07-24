@@ -6,7 +6,7 @@ const imageInput = document.querySelector('#image-input');
 const topTextInput = document.querySelector('#top-text-input');
 const bottomTextInput = document.querySelector('#bottom-text-input');
 const randomMemeBtn = document.querySelector('.meme-random');
-const fileUploadInput = document.querySelector('#image-upload')
+const fileUploadInput = document.querySelector('#image-upload');
 
 
 async function getRandomMeme() {
@@ -28,6 +28,7 @@ function createOverlay() {
 }
 
 function isImgLink(url) {
+  if (typeof url !== 'string') return false;
   const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/;
   return regex.test(url);
 }
