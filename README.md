@@ -25,4 +25,4 @@ it had certain extensions on it to be an image, which ended up looking alot nice
 
 ## Screenshot
 
-<img src="assets/screenshot-meme.png" alt="screenshot" width="500">
+<img src="assets/screenshot-meme.png" alt="screenshot" width="1000">
