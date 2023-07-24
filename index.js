@@ -1,3 +1,5 @@
+"use strict";
+
 const form = document.querySelector('form');
 const memeSection = document.querySelector("#memes");
 const imageInput = document.querySelector('#image-input');
