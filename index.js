@@ -8,29 +8,34 @@ const bottomTextInput = document.querySelector('#bottom-text-input');
 const randomMemeBtn = document.querySelector('.meme-random');
 const fileUploadInput = document.querySelector('#image-upload');
 
+const MEME_API_URL = 'https://api.imgflip.com/get_memes';
+
+function isImgLink(url) {
+  if (typeof url !== 'string') return false;
+
+  const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/;
+  return regex.test(url);
+}
+
 
 async function getRandomMeme() {
   const randomIndex = Math.floor(Math.random() * 69);
-  const response = await fetch('https://api.imgflip.com/get_memes');
+  const response = await fetch(MEME_API_URL);
   const data = await response.json();
   const filteredMemes = data.data.memes.filter(meme => meme.box_count < 3);
   imageInput.value = filteredMemes[randomIndex].url;
 }
 
 function createOverlay() {
-  const div = document.createElement("div");
-  const span = document.createElement("span");
-  div.classList.add('overlay');
-  span.classList.add("delete-meme");
-  span.innerText = 'x';
-  div.appendChild(span);
-  return div;
-}
+  const overlay = document.createElement("div");
+  overlay.classList.add('overlay');
 
-function isImgLink(url) {
-  if (typeof url !== 'string') return false;
-  const regex = /(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/;
-  return regex.test(url);
+  const deleteButton = document.createElement("span");
+  deleteButton.classList.add("delete-meme");
+  deleteButton.innerText = 'x';
+  overlay.appendChild(deleteButton);
+
+  return overlay;
 }
 
 function createImg() {
@@ -72,21 +77,25 @@ function createMeme() {
   return memeDiv;
 }
 
-function submitMeme(e) {
-  e.preventDefault();
-  memeSection.append(createMeme() || '');
-  form.reset();
+function handleSubmit(event) {
+  event.preventDefault();
+  const newMeme = createMeme();
+
+  if (newMeme) {
+    memeSection.appendChild(newMeme);
+    form.reset();
+  }
 }
 
-function deleteMeme(e) {
-  if (e.target.classList.contains('overlay') || e.target.classList.contains('delete-meme')) {
+function handleDeleteMeme(event) {
+  if (event.target.classList.contains('overlay') || event.target.classList.contains('delete-meme')) {
     if (confirm('Are you sure you want to delete this meme?')) {
-      e.target.closest('div.meme-div').remove();
+      event.target.closest('div.meme-div').remove();
     }
   }
 }
 
 
-form.addEventListener('submit', submitMeme);
-memeSection.addEventListener('click', deleteMeme);
+form.addEventListener('submit', handleSubmit);
+memeSection.addEventListener('click', handleDeleteMeme);
 randomMemeBtn.addEventListener('click', getRandomMeme);
