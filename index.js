@@ -19,11 +19,19 @@ function isImgLink(url) {
 
 
 async function getRandomMeme() {
-  const randomIndex = Math.floor(Math.random() * 69);
-  const response = await fetch(MEME_API_URL);
-  const data = await response.json();
-  const filteredMemes = data.data.memes.filter(meme => meme.box_count < 3);
-  imageInput.value = filteredMemes[randomIndex].url;
+  try {
+    const response = await fetch(MEME_API_URL);
+    const data = await response.json();
+    const filteredMemes = data.data.memes.filter(meme => meme.box_count < 3);
+
+    if (filteredMemes.length === 0) throw new Error('No valid memes available');
+
+    const randomIndex = Math.floor(Math.random() * filteredMemes.length);
+    return filteredMemes[randomIndex].url;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 function createOverlay() {
@@ -77,6 +85,12 @@ function createMeme() {
   return memeDiv;
 }
 
+
+async function handleRandomMeme() {
+  const memeURL = await getRandomMeme();
+  if (memeURL) imageInput.value = memeURL;
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   const newMeme = createMeme();
@@ -98,4 +112,4 @@ function handleDeleteMeme(event) {
 
 form.addEventListener('submit', handleSubmit);
 memeSection.addEventListener('click', handleDeleteMeme);
-randomMemeBtn.addEventListener('click', getRandomMeme);
+randomMemeBtn.addEventListener('click', handleRandomMeme);
